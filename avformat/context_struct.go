@@ -66,7 +66,7 @@ func (ctxt *Context) Streams() []*Stream {
 }
 
 func (ctxt *Context) Filename() string {
-	return C.GoString((*C.char)(unsafe.Pointer(&ctxt.filename[0])))
+	return C.GoString((*C.char)(unsafe.Pointer(ctxt.url)))
 }
 
 // func (ctxt *Context) CodecWhitelist() string {
