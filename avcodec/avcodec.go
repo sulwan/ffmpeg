@@ -81,16 +81,6 @@ func (cp *AvCodecParameters) AvCodecGetSampleRate() int {
 	return *((*int)(unsafe.Pointer(&cp.sample_rate)))
 }
 
-// AvCodecNext If c is NULL, returns the first registered codec, if c is non-NULL,
-func (c *Codec) AvCodecNext() *Codec {
-	return (*Codec)(C.av_codec_next((*C.struct_AVCodec)(c)))
-}
-
-// Register the codec codec and initialize libavcodec.
-func (c *Codec) AvcodecRegister() {
-	C.avcodec_register((*C.struct_AVCodec)(c))
-}
-
 //Return a name for the specified profile, if available.
 func (c *Codec) AvGetProfileName(p int) string {
 	return C.GoString(C.av_get_profile_name((*C.struct_AVCodec)(c), C.int(p)))
@@ -128,12 +118,6 @@ func AvcodecConfiguration() string {
 //Return the libavcodec license.
 func AvcodecLicense() string {
 	return C.GoString(C.avcodec_license())
-}
-
-//Register all the codecs, parsers and bitstream filters which were enabled at configuration time.
-func AvcodecRegisterAll() {
-	C.avcodec_register_all()
-	// C.av_log_set_level(0xffff)
 }
 
 //Get the Class for Context.
@@ -236,12 +220,6 @@ func AvFastPaddedMallocz(p unsafe.Pointer, s *uint, t uintptr) {
 //Encode extradata length to a buffer.
 func AvXiphlacing(s *string, v uint) uint {
 	return uint(C.av_xiphlacing((*C.uchar)(unsafe.Pointer(s)), (C.uint)(v)))
-}
-
-//If hwaccel is NULL, returns the first registered hardware accelerator, if hwaccel is non-NULL,
-//returns the next registered hardware accelerator after hwaccel, or NULL if hwaccel is the last one.
-func (a *AvHWAccel) AvHwaccelNext() *AvHWAccel {
-	return (*AvHWAccel)(C.av_hwaccel_next((*C.struct_AVHWAccel)(a)))
 }
 
 //Get the type of the given codec.

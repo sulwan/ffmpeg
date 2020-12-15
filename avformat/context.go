@@ -24,15 +24,6 @@ const (
 func (s *Context) AvFormatGetVideoCodec() *AvCodec {
 	return (*AvCodec)(C.av_format_get_video_codec((*C.struct_AVFormatContext)(s)))
 }
-
-func (s *Context) AvFormatSetAudioCodec(c *AvCodec) {
-	C.av_format_set_audio_codec((*C.struct_AVFormatContext)(s), (*C.struct_AVCodec)(c))
-}
-
-func (s *Context) AvFormatSetSubtitleCodec(c *AvCodec) {
-	C.av_format_set_subtitle_codec((*C.struct_AVFormatContext)(s), (*C.struct_AVCodec)(c))
-}
-
 //This function will cause global side data to be injected in the next packet of each stream as well as after any subsequent seek.
 func (s *Context) AvFormatInjectGlobalSideData() {
 	C.av_format_inject_global_side_data((*C.struct_AVFormatContext)(s))
