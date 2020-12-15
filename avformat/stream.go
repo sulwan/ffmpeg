@@ -7,7 +7,7 @@ package avformat
 //#include <libavformat/avformat.h>
 import "C"
 import (
-	"github.com/giorgisio/goav/avcodec"
+	"github.com/sulwan/ffmpeg/avcodec"
 )
 
 //struct CodecParserContext * av_stream_get_parser (const Stream *s)

@@ -1,1 +1,1 @@
-这个库是基于github.com/giorgisio/goav，根据最新4.1进行了修正
+这个库是基于github.com/sulwan/ffmpeg，根据最新4.1进行了修正

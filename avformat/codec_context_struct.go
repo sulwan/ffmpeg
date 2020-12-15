@@ -19,7 +19,7 @@ import (
 	"reflect"
 	"unsafe"
 
-	"github.com/giorgisio/goav/avcodec"
+	"github.com/sulwan/ffmpeg/avcodec"
 )
 
 func (cctxt *CodecContext) Type() MediaType {
