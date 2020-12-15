@@ -50,7 +50,8 @@ func (s *Context) AvNewProgram(id int) *AvProgram {
 
 //Read packets of a media file to get stream information.
 func (s *Context) AvformatFindStreamInfo(d **avutil.Dictionary) int {
-	return int(C.avformat_find_stream_info((*C.struct_AVFormatContext)(s), (**C.struct_AVDictionary)(unsafe.Pointer(d))))
+	return int(C.avformat_find_stream_info((*C.struct_AVFormatContext)(unsafe.Pointer(s)), (**C.struct_AVDictionary)(unsafe.Pointer(d))))
+
 }
 
 //Find the programs which belong to a given stream.
